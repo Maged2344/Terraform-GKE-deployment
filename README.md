@@ -1,5 +1,5 @@
 ## - GCP-Final-Task
-## - LoadBalancer:  34.89.68.66:8000 
+## - LoadBalancer:  34.89.91.120:8000
 ## - Technologies:
 ### 1) Google CLoud Platform
 ### 2) terraform
