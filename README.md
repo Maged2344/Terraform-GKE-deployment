@@ -1,3 +1,9 @@
-### GCP-Final-Task
+## GCP-Final-Task
 ## LoadBalancer:  34.89.68.66:8000 
-# This project is built of: Google Cloud platform , terraform, Docker
+## Technologies:
+### Google CLoud Platform
+### terraform
+### Docker Platform
+### Goal is to dockarize python web application with redis and deploy it on GKE
+## Steps
+
