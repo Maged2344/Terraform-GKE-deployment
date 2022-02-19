@@ -1,22 +1,48 @@
-## - GCP-Final-Task
-## - LoadBalancer:  34.89.91.120:8000
-## - Technologies:
-### 1) Google CLoud Platform
-### 2) terraform
-### 3) Docker Platform
-### - Goal is to dockarize python web application with redis and deploy it on GKE
-## - Steps
-### 1) i created the infrastructre using terraform. check infrastructure folder.
-### 2) i pulled the sourced code from github 
-### 3) i worked on building the dockerfile to create an image of this file and here i changed the tornado dependency to 6.1.0 because the older version 
-### in the requirements.txt doesnt work. 
-### 4) i pulled the redis image from dockerhub
-### 5) both images are pushed into GCR registry
-### 6) The i created 4 yaml files
-### - first one is for the application
-### - second is for the redis database
-### - third is to make a clusterip service so that the app can connect to the redis internally in the cluster
-### - fourth is for the loadbalancer service.
-### 7) I deployed the my app the cluster and i can access it through the loadbalancer 
+# SIMPLE PYTHON APP DEPLOYMENT USING TERRAFORM,DOCKER&GCP.
+
+A simple python web-app using [redis](https://redis.io/) for caching, Deployed on a full GKE cluster using [Terraform](https://www.terraform.io/)
+
+## Infrastructure
+
+A VPC containing 2 subnets, Nat gate-way, Private VM instance and a private standard GKE cluster.
+
+## K8s components
+
+Two deployment files to deploy the python application and redis service
+
+## Docker images
+
+I used the python application in [DevOps-Challenge-Demo-Code](https://github.com/atefhares/DevOps-Challenge-Demo-Code) repository to generate the app Dockerfile, And for Redis I pulled the official Redis image from [Docker hub](https://hub.docker.com/)
+
+## Installation
+
+- Use the package manager [pip](https://pypi.org/project/pip/) to install the dependencies into your Docker file.
+
+```bash
+RUN pip install -r requirements.txt
+```
+
+- Apply the infrastructure on GCP using Terraform.
+
+```bash
+terraform init 
+terraform plan
+terraform apply
+```
+
+- SSH into the private instance and start deploying to your K8s cluster
+
+```bash
+kubectl apply -f "add file name here"
+```
+
+
+
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## result image
+![alt text](https://github.com/ahmedsalaheldin12/CI-CD-project/blob/main/images/Screenshot%20from%202022-02-16%2021-17-33.png)
 
 
